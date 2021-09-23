@@ -1,0 +1,29 @@
+version: "3"
+services:
+  load-balance:
+    image: nginx:latest
+    volumes:
+      - ./nginx-load-balancer/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - flask-api-service
+    ports:
+      - "80:80"
+      - "443:443"
+    deploy:
+      mode: global
+      placement:
+        constraints: [node.role == manager]
+  api-service:
+    build: "./flask-api-service"
+    deploy:
+      mode: replicated
+      replicas: 4
+      labels: [APP=API]
+      placement:
+        constraints: [node.role == worker]
+networks:
+  frontend:
+  backend:
+
+volumes:
+  db-data:
