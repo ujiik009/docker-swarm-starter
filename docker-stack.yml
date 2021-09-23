@@ -7,8 +7,7 @@ services:
     depends_on:
       - flask-api-service
     ports:
-      - "80:80"
-      - "443:443"
+      - "8080:80"
     deploy:
       mode: global
       placement:
