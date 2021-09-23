@@ -14,7 +14,7 @@ services:
       placement:
         constraints: [node.role == manager]
   api-service:
-    build: "./flask-api-service"
+    image: ujiik00900/flask-api-service:1.0.0
     deploy:
       mode: replicated
       replicas: 4
