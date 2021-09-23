@@ -17,7 +17,7 @@ services:
     image: ujiik00900/flask-api-service:1.0.0
     deploy:
       mode: replicated
-      replicas: 4
+      replicas: 10
       labels: [APP=API]
       placement:
         constraints: [node.role == worker]
