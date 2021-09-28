@@ -15,3 +15,5 @@ docker stack deploy --compose-file docker-stack.yml starter
 ```
 docker stack services starter
 ```
+
+App running at: http://127.0.0.1:8080
